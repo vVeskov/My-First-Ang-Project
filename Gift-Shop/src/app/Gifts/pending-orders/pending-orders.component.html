@@ -1,0 +1,27 @@
+<section class="main-pending-orders" *ngFor="let order of orders">
+  <div class="pending-orders">
+    <div class="pending-order-user">
+      <span>Username: </span>
+      <span>{{order.user}}</span>
+    </div>
+    <div class="pending-order-date">
+      <span>Date order: </span>
+      <span>{{order.dateCreated}}</span>
+    </div>
+    <div class="pending-order-orders">
+      <p>User orders:</p>
+      <div class="pending-orders-gifts" *ngFor="let ord of order.giftsName">
+        {{ord}}
+      </div>
+    </div>
+    <div class="pending-order-sum">
+      <span>Total sum: </span>
+      <span>{{order.totalSum}} USD</span>
+    </div>
+    <button type="submit" class="checkout" (click)="deleteUserOrder(order._id)">Checkout</button>
+  </div>
+</section>
+<div class="noCartPage" *ngIf="!orders">
+  <h2 class="noGifts">There are currently no pending orders!</h2>
+  <a class="backBtn" routerLink="/gift/home">Back to menu</a>
+</div>

@@ -1,0 +1,19 @@
+<div class="edit-gift" *ngIf="gift">
+    <form #f="ngForm" (ngSubmit)="editGift()">
+        <h1>Edit Gift</h1>
+        <span>Gift name</span>
+        <input type="text" value="{{gift.giftName}}" [(ngModel)]="gift.giftName" name="giftName"/>
+        
+        <span>Description</span>
+        <input type="text"  value="{{gift.description}}" [(ngModel)]="gift.description" name="description" />
+      
+        <span>Image Url</span>
+        <input type="text" value="{{gift.imageUrl}}" [(ngModel)]="gift.imageUrl" name="imageUrl" />
+        
+        <span>Price</span>
+        <input type="text" value="{{gift.price}}" [(ngModel)]="gift.price" name="price" />
+       
+        <button type="submit">Edit gift</button>
+    </form>
+
+</div>

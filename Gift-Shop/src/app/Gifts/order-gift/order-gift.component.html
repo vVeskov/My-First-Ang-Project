@@ -1,0 +1,21 @@
+<ng-template [ngIf]="gift">
+<form #f="ngForm" (ngSubmit)="orderGift()" >   
+    <div class="orders-wrapper">
+        <div class="productImage">
+            <img src="{{gift.imageUrl}}" alt="..."/>
+        </div>
+        <div class="orders">
+            <span>Product</span>
+            <span name="giftName" [(ngModel)]="gift.giftName" class="gift-name">{{gift.giftName}}</span>
+            <span>Price</span>
+            <span class="gift-total-price" [(ngModel)]="gift.price" name="price">{{gift.price}}</span>
+            <input class="giftQuantity" ngModel="1" name="giftQnt" type="number"
+                 min="1"/>
+            <div class="order-buttons">
+                <a [routerLink]="['/gift/home']" class="continue-shopping">Back to menu</a>
+                <button class="checkout">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</form>
+</ng-template>

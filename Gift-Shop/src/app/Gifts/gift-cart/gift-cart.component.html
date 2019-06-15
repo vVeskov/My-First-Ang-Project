@@ -1,0 +1,32 @@
+<h2 class="class-title">My Cart</h2>
+<main *ngIf="hasGifts; else otherContent">
+  <div class="cart" *ngFor="let gift of gifts">
+    <section class="table-head">
+      <span class="productName">Product</span>
+      <span class="order-price">Price</span>
+      <span class="order-price">Quantity</span>
+    </section>
+    <section>
+      <div class="user-cart">
+        <span class="productName">{{gift.giftName}}</span>
+        <span class="order-price">{{gift.price}} USD</span>
+        <span class="productQnt" >{{gift.giftQnt}}</span>
+        <button type="submit" class="deleteChoosenGift" (click)="deleteGift(gift.user,gift.giftName)">Delete</button>
+      </div>
+    </section>
+  </div>
+  <div class="user-sum">
+    <span class="totalSum">TotalSum:</span>
+    <span class="totalSumValue">{{totalSum}} USD</span>
+  </div>
+  <div class="cart-buttons" >
+    <a class="continue-shoping" [routerLink]="['/gift/home']">Continue Shoping</a>
+    <button type="submit" class="buy-product" (click)="removeUserOrder(gifts,totalSum)">Buy</button>
+  </div>
+</main>
+<ng-template #otherContent>
+  <div class="noCartPage">
+    <h2 class="noGifts">Sorry, you have no items in the cart. </h2>
+    <a class="backBtn" [routerLink]="['/gift/home']">Back to menu</a>
+  </div>
+</ng-template>

@@ -1,0 +1,24 @@
+<h1 *ngIf="username">
+  Hello {{username}}, welcome to our Gift Shop !
+</h1>
+
+<main>
+  <section>
+    <div class="single-gift"  *ngFor="let gift of gifts">
+      <img src="{{gift.imageUrl}}" />
+      <span class="boldText">Product</span>
+      <span class="gift-name">{{gift.giftName}}</span>
+      <div class="gift-details">
+        <span class="boldText">Price</span>
+        <span class="gift-price">{{gift.price}}</span>
+        <a [routerLink]="['/gift/edit/', gift._id]"  *ngIf="authService.isAdmin()" class="editButton">Edit</a>
+        <button *ngIf="authService.isAdmin()" (click)="deleteGift(gift._id)" class="deleteButton" type="submit">Delete</button>
+        <div class="userOrdDetailsBtns">
+          <a *ngIf="authService.isAuthenticated() && !authService.isAdmin()" [routerLink]="['/gift/order',gift._id]"  class="orderBtn1">Order</a>
+          <a *ngIf="authService.isAuthenticated() && !authService.isAdmin()"
+           [routerLink]="['/gift/details/',gift._id]" class="orderBtn">Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

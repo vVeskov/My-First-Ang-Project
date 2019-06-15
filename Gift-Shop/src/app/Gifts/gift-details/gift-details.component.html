@@ -1,0 +1,8 @@
+<div class="details" *ngIf="gift">
+    <h1>Details</h1>
+    <div class="details-img">
+        <img src="{{gift.imageUrl}}"/>
+    </div>
+    <p class="product-description">{{gift.description}}</p>
+    <a [routerLink]="['/gift/home']" class="continue-shopping1">Back to menu</a>
+</div>

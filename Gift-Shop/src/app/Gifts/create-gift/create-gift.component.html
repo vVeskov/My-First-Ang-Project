@@ -1,0 +1,18 @@
+<div class="create-gift">
+    <h1>Create Gift</h1>
+    <form [formGroup]="form" (submit)="createGift()">
+        <span>Gift name</span>
+        <input type="text" formControlName="giftName" placeholder="Enter gift name" />
+        <div *ngIf="f.giftName.touched && f.giftName.errors?.required">This field is required!</div>
+        <span>Description</span>
+        <input type="text" formControlName="description" placeholder="Enter gift description" />
+        <div *ngIf="f.description.touched && f.description.errors?.required">This field is required!</div>
+        <span>Image Url</span>
+        <input type="text" formControlName="imageUrl" placeholder="Enter gift image URL" />
+        <div *ngIf="f.imageUrl.touched && f.imageUrl.errors?.required">This field is required!</div>
+        <span>Price</span>
+        <input type="text" formControlName="price" placeholder="Enter gift price" />
+        <div *ngIf="f.price.touched && f.price.errors?.required">This field is required!</div>
+        <button type="submit" [disabled]="invalid">Create gift</button>
+    </form>
+</div>
